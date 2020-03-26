@@ -9,7 +9,9 @@ public class StackOfStrings {
 
     //
     private class Node {
-        public String item;
+        public String item;//
+        // if you want to create integer stack then simply replace the datatype
+        // i.e replace the string by int for integer stack which stores the integer value
         public Node next;// next is pointer that hold the address of Node object
 
         public Node(String x) {
