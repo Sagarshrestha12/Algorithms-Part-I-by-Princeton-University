@@ -57,14 +57,14 @@ public class GenericStack<Item> {
 
     public static void main(String[] args) {
         ResizingArrayStack stack = new ResizingArrayStack();
-        String[] x = new String[]{"to", "be", "or", "not", "to", "-", "be", "-", "-", "that", "-", "-", "-", "is"};
+        String[] x = new String[]{"to", "be", "or", "not", "to", "-", "be", "-", "-", "that", "-", "-", "-", "is", "-", "-", "-", "-", "-", "-"};
         System.out.println(x.length);
 
         for (int i = 0; i < x.length; i++) {
             try {
                 if (x[i] == "-") {
                     StdOut.print(stack.pop());
-                } else stack.push(x[i] + "\t");
+                } else stack.push(x[i]);
             } catch (Myexception e) {
                 System.out.println(e.getMessage());
             }
