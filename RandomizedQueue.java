@@ -87,7 +87,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         System.out.println("Printing queue randomly\n");
         Iterator<Integer> t = d.iterator();
         while (t.hasNext()) {
-            it
+
             System.out.print(t.next() + "\t");
         }
         System.out.println("The size of the RandomizedQueue is" + d.size() + "\n");
