@@ -128,10 +128,12 @@ public class Deque<Item> implements Iterable<Item> {
     private class reverse implements Iterator<Item> {
         private Node i = first;
 
+        @Override
         public boolean hasNext() {
             return i != null;
         }
 
+        @Override
         public Item next() {
             if (i == null) {
                 throw new NoSuchElementException();
@@ -171,10 +173,15 @@ public class Deque<Item> implements Iterable<Item> {
         for (int i = 0; i < x.length; i++) {
             d.addFirst(x[i]);
         }
+        System.out.println("The size of the deque is " + d.size());
         System.out.println(" Printing for addFirst");
         Iterator<Integer> l = d.iterator();
         while (l.hasNext()) {
             System.out.print(l.next() + "\t");
+        }
+        System.out.println("Printing by removing First");
+        for (int i = 0; i < x.length; i++) {
+            System.out.print(d.removeFirst() + "\t");
         }
 
     }
