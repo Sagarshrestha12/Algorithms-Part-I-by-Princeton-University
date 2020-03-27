@@ -14,24 +14,24 @@ public class Deque<Item> implements Iterable<Item> {
 
     private Node first;// are the pointer
     private Node last;//this variable is declared to
-    private int N;
+    private int n;
     // private Node x;
 
     // construct an empty deque
     public Deque() {// since we are using the double linked list we didn't need to worry about resize of deque// since we are using
-        N = 0;// doubly linked list it consumes more power
+        n = 0;// doubly linked list it consumes more power
         first = null;
         last = null;
     }
 
     // is the deque empty?
     public boolean isEmpty() {
-        return N == 0;
+        return n == 0;
     }
 
     // return the number of items on the deque
     public int size() {
-        return N;
+        return n;
     }
 
     // add the item to the front
@@ -40,19 +40,19 @@ public class Deque<Item> implements Iterable<Item> {
         if (item == null) {
             throw new IllegalArgumentException("null object can't be added");
         }
-        Node n = new Node(item);
+        Node x = new Node(item);
         if (isEmpty()) {
-            n.preNode = null;
-            n.nextNode = null;
-            first = n;
-            last = n;
+            x.preNode = null;
+            x.nextNode = null;
+            first = x;
+            last = x;
         } else {
-            n.preNode = null;
-            n.nextNode = first;
-            first.preNode = n;
-            first = n;
+            x.preNode = null;
+            x.nextNode = first;
+            first.preNode = x;
+            first = x;
         }
-        N++;
+        n++;
     }
 
     // add the item to the back
@@ -61,19 +61,19 @@ public class Deque<Item> implements Iterable<Item> {
         if (item == null) {
             throw new IllegalArgumentException("null object can't be added");
         }
-        Node n = new Node(item);
+        Node x = new Node(item);
         if (isEmpty()) {
-            n.preNode = null;
-            n.nextNode = null;
-            first = n;
-            last = n;
+            x.preNode = null;
+            x.nextNode = null;
+            first = x;
+            last = x;
         } else {
-            n.nextNode = null;
-            n.preNode = last;
-            last.nextNode = n;
-            last = n;
+            x.nextNode = null;
+            x.preNode = last;
+            last.nextNode = x;
+            last = x;
         }
-        N++;
+        n++;
     }
 
     // remove and return the item from the front
@@ -82,7 +82,7 @@ public class Deque<Item> implements Iterable<Item> {
             throw new NoSuchElementException("deque is empty");
         }
         Item x = null;
-        if (N == 1) {
+        if (n == 1) {
             x = first.item;
             first = null;
             last = null;
@@ -94,7 +94,7 @@ public class Deque<Item> implements Iterable<Item> {
             t.nextNode = null;
             t.preNode = null;
         }
-        N--;
+        n--;
         return x;
     }
 
@@ -104,7 +104,7 @@ public class Deque<Item> implements Iterable<Item> {
             throw new NoSuchElementException("deque is empty");
         }
         Item x = null;
-        if (N == 1) {
+        if (n == 1) {
             x = first.item;
             first = null;
             last = null;
@@ -116,16 +116,16 @@ public class Deque<Item> implements Iterable<Item> {
             t.nextNode = null;
             t.item = null;
         }
-        N--;
+        n--;
         return x;
     }
 
     // return an iterator over items in order from front to back
     public Iterator<Item> iterator() {
-        return new reverse();
+        return new Reverse();
     }
 
-    private class reverse implements Iterator<Item> {
+    private class Reverse implements Iterator<Item> {
         private Node i = first;
 
         @Override
